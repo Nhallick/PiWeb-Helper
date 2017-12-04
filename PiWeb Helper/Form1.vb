@@ -1,6 +1,6 @@
 ﻿'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 'Project: PiWeb Helper
-'Description: Software built with the purpose of assisting in the navigation and opening of template files for the PiWeb software in inspection. Built to be used exclusively on the inspection cmm computer
+'Description: Software built with the purpose of assisting in the navigation and opening of template files for the PiWeb software in inspection. Built to be used exclusively on the inspection CMM computer
 'Created By: Nick Hallick
 '            Process Engineer
 '            nhallick@strite.com
@@ -20,7 +20,7 @@ Public Class Form1
     Private Sub BtnCheck_Click(sender As Object, e As EventArgs) Handles btnCheck.Click
 
 
-        'use tiered if/elseif statement to check if each of the textboxes is empty. If any of them are a messagebox will inform the user and then exit the sub
+        'use tiered if/else-if statement to check if each of the text boxes is empty. If any of them are a message box will inform the user and then exit the sub
         If tbCustomer.Text = "" Then
             MsgBox("Customer cannot be blank, please enter a customer.", vbCritical, "Error")
             tbCustomer.Focus()
@@ -35,12 +35,12 @@ Public Class Form1
             Exit Sub
         End If
 
-        'set the file location using the info entered by the user in the three textboxes
+        'set the file location using the info entered by the user in the three text boxes
         'Dim FileLocation As DirectoryInfo = New DirectoryInfo("C:\Users\nhallick\Desktop\Checksheets\" & tbCustomer.Text & "\" & tbPartNumber.Text & "\" & tbOPN.Text)
         Dim FileLocation As DirectoryInfo = New DirectoryInfo("C:\Users\Inspection CMM\Desktop\PiWEB Templates\" & tbCustomer.Text & "\" & tbPartNumber.Text & "\" & tbOPN.Text)
         Dim fi As FileInfo()
 
-        'use try catch method to get all the files from the filelocation directory and store in fi (file info array)
+        'use try catch method to get all the files from the file-location directory and store in fi (file info array)
         Try
             fi = FileLocation.GetFiles("*.ptx")
         Catch ex As Exception
@@ -57,10 +57,15 @@ Public Class Form1
             lbFiles.Items.Add(thing)
         Next
 
+        My.Settings.Customer = tbCustomer.Text
+        My.Settings.Part = tbPartNumber.Text
+        My.Settings.Opn = tbOPN.Text
+        My.Settings.Save()
+
     End Sub
 
     Private Sub BtnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
-        'check to see if the listbox has items selected in it, if it doesnt then tell the user this
+        'check to see if the listbox has items selected in it, if it doesn't then tell the user this
         If lbFiles.SelectedItems.Count = 0 Then
             MsgBox("Please select at least one file from the list before continuing", vbCritical, "Error")
         Else
@@ -71,6 +76,13 @@ Public Class Form1
             Next
         End If
 
+
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        tbCustomer.Text = My.Settings.Customer
+        tbPartNumber.Text = My.Settings.Part
+        tbOPN.Text = My.Settings.Opn
 
     End Sub
 End Class
