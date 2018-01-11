@@ -79,10 +79,11 @@ Public Class Settings
     End Sub
 
     Private Sub LVSettings_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles LVSettings.ItemSelectionChanged
-
-        tbCustomer.Text = LVSettings.SelectedItems.Item(0).Text
-        tbPartNumber.Text = LVSettings.SelectedItems.Item(0).SubItems(1).Text
-        tbOperation.Text = LVSettings.SelectedItems.Item(0).SubItems(2).Text
+        If (LVSettings.SelectedItems.Count > 0) Then
+            tbCustomer.Text = LVSettings.SelectedItems(0).Text
+            tbPartNumber.Text = LVSettings.SelectedItems.Item(0).SubItems(1).Text
+            tbOperation.Text = LVSettings.SelectedItems.Item(0).SubItems(2).Text
+        End If
     End Sub
 
     Private Sub btnMoveup_Click(sender As Object, e As EventArgs) Handles btnMoveUp.Click
