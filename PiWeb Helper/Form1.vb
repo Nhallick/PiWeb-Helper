@@ -80,9 +80,34 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim i As Integer = 0
+        Dim Spl As String()
+
         tbCustomer.Text = My.Settings.Customer
         tbPartNumber.Text = My.Settings.Part
         tbOPN.Text = My.Settings.Opn
 
+        CBFreqUsed.Items.Clear()
+        Do Until i = My.Settings.FreqUsed.Count
+            CBFreqUsed.Items.Add(My.Settings.FreqUsed(i))
+            i = i + 1
+        Loop
+        CBFreqUsed.Text = CBFreqUsed.Items(0)
+        Spl = CBFreqUsed.Text.Split(",")
+        tbCustomer.Text = Spl(0)
+        tbPartNumber.Text = Spl(1)
+        tbOPN.Text = Spl(2)
+    End Sub
+
+    Private Sub BtnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
+        Settings.Show()
+    End Sub
+
+    Private Sub CBFreqUsed_SelectedValueChanged(sender As Object, e As EventArgs) Handles CBFreqUsed.SelectedValueChanged
+        Dim spl As String()
+        spl = CBFreqUsed.Text.Split(",")
+        tbCustomer.Text = spl(0)
+        tbPartNumber.Text = spl(1)
+        tbOPN.Text = spl(2)
     End Sub
 End Class

@@ -32,27 +32,35 @@ Partial Class Form1
         Me.btnCheck = New System.Windows.Forms.Button()
         Me.lbFiles = New System.Windows.Forms.ListBox()
         Me.btnConfirm = New System.Windows.Forms.Button()
+        Me.CBFreqUsed = New System.Windows.Forms.ComboBox()
+        Me.btnSettings = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'tbCustomer
         '
+        Me.tbCustomer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbCustomer.Location = New System.Drawing.Point(12, 25)
         Me.tbCustomer.Name = "tbCustomer"
-        Me.tbCustomer.Size = New System.Drawing.Size(247, 20)
+        Me.tbCustomer.Size = New System.Drawing.Size(360, 20)
         Me.tbCustomer.TabIndex = 0
         '
         'tbPartNumber
         '
+        Me.tbPartNumber.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbPartNumber.Location = New System.Drawing.Point(12, 64)
         Me.tbPartNumber.Name = "tbPartNumber"
-        Me.tbPartNumber.Size = New System.Drawing.Size(247, 20)
+        Me.tbPartNumber.Size = New System.Drawing.Size(360, 20)
         Me.tbPartNumber.TabIndex = 1
         '
         'tbOPN
         '
+        Me.tbOPN.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbOPN.Location = New System.Drawing.Point(12, 103)
         Me.tbOPN.Name = "tbOPN"
-        Me.tbOPN.Size = New System.Drawing.Size(247, 20)
+        Me.tbOPN.Size = New System.Drawing.Size(360, 20)
         Me.tbOPN.TabIndex = 2
         '
         'lblCustomer
@@ -84,7 +92,8 @@ Partial Class Form1
         '
         'btnCheck
         '
-        Me.btnCheck.Location = New System.Drawing.Point(184, 129)
+        Me.btnCheck.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCheck.Location = New System.Drawing.Point(297, 129)
         Me.btnCheck.Name = "btnCheck"
         Me.btnCheck.Size = New System.Drawing.Size(75, 23)
         Me.btnCheck.TabIndex = 6
@@ -93,27 +102,53 @@ Partial Class Form1
         '
         'lbFiles
         '
+        Me.lbFiles.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbFiles.FormattingEnabled = True
         Me.lbFiles.Location = New System.Drawing.Point(12, 158)
         Me.lbFiles.Name = "lbFiles"
         Me.lbFiles.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.lbFiles.Size = New System.Drawing.Size(247, 134)
+        Me.lbFiles.Size = New System.Drawing.Size(360, 134)
         Me.lbFiles.TabIndex = 7
         '
         'btnConfirm
         '
-        Me.btnConfirm.Location = New System.Drawing.Point(184, 298)
+        Me.btnConfirm.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnConfirm.Location = New System.Drawing.Point(297, 298)
         Me.btnConfirm.Name = "btnConfirm"
         Me.btnConfirm.Size = New System.Drawing.Size(75, 23)
         Me.btnConfirm.TabIndex = 8
         Me.btnConfirm.Text = "Confirm"
         Me.btnConfirm.UseVisualStyleBackColor = True
         '
+        'CBFreqUsed
+        '
+        Me.CBFreqUsed.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CBFreqUsed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CBFreqUsed.FormattingEnabled = True
+        Me.CBFreqUsed.Location = New System.Drawing.Point(12, 130)
+        Me.CBFreqUsed.Name = "CBFreqUsed"
+        Me.CBFreqUsed.Size = New System.Drawing.Size(279, 21)
+        Me.CBFreqUsed.TabIndex = 9
+        '
+        'btnSettings
+        '
+        Me.btnSettings.Location = New System.Drawing.Point(12, 298)
+        Me.btnSettings.Name = "btnSettings"
+        Me.btnSettings.Size = New System.Drawing.Size(75, 23)
+        Me.btnSettings.TabIndex = 10
+        Me.btnSettings.Text = "Settings"
+        Me.btnSettings.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(268, 330)
+        Me.ClientSize = New System.Drawing.Size(381, 332)
+        Me.Controls.Add(Me.btnSettings)
+        Me.Controls.Add(Me.CBFreqUsed)
         Me.Controls.Add(Me.btnConfirm)
         Me.Controls.Add(Me.lbFiles)
         Me.Controls.Add(Me.btnCheck)
@@ -143,4 +178,6 @@ Partial Class Form1
     Friend WithEvents btnCheck As Button
     Friend WithEvents lbFiles As ListBox
     Friend WithEvents btnConfirm As Button
+    Friend WithEvents CBFreqUsed As ComboBox
+    Friend WithEvents btnSettings As Button
 End Class
